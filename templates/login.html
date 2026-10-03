@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Chatbot | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-scene">
+      <div class="city-background">
+        <div class="skyline skyline-one"></div>
+        <div class="skyline skyline-two"></div>
+        <div class="skyline skyline-three"></div>
+      </div>
+
+      <div class="person-figure" aria-hidden="true">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="arm arm-left"></div>
+        <div class="arm arm-right"></div>
+        <div class="leg leg-left"></div>
+        <div class="leg leg-right"></div>
+        <div class="bag">
+          <span class="bag-lid"></span>
+          <span class="bag-remote"></span>
+        </div>
+        <div class="wow-badge">WOW</div>
+      </div>
+
+      <div class="login-card-wrapper">
+        <div class="login-card glass-panel">
+          <div class="card-header">
+            <span class="pill">City Guide</span>
+            <h1>Welcome back</h1>
+            <p>Explore your city smarter and faster.</p>
+          </div>
+
+          <form id="loginForm" novalidate>
+            <div class="field-group">
+              <label for="username">Username / Email</label>
+              <input id="username" name="username" type="text" placeholder="Enter your username or email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <div class="password-field">
+                <input id="password" name="password" type="password" placeholder="Enter your password" required />
+                <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+              </div>
+            </div>
+
+            <div class="form-row-inline">
+              <label class="checkbox-row">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="muted-link">Forgot Password?</a>
+            </div>
+
+            <button class="primary-btn auth-btn" type="submit">Login</button>
+            <div id="loginError" class="form-message error" role="alert"></div>
+          </form>
+
+          <div class="auth-footer">
+            <span>New here?</span>
+            <a href="{{ url_for('register_page') }}">Create Account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

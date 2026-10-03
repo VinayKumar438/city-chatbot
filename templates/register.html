@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Chatbot | Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="auth-body alt-auth-body">
+    <div class="auth-scene auth-register-scene">
+      <div class="city-background">
+        <div class="skyline skyline-one"></div>
+        <div class="skyline skyline-two"></div>
+        <div class="skyline skyline-three"></div>
+      </div>
+
+      <div class="person-figure" aria-hidden="true">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="arm arm-left"></div>
+        <div class="arm arm-right"></div>
+        <div class="leg leg-left"></div>
+        <div class="leg leg-right"></div>
+        <div class="bag">
+          <span class="bag-lid"></span>
+          <span class="bag-remote"></span>
+        </div>
+        <div class="wow-badge">WOW</div>
+      </div>
+
+      <div class="login-card-wrapper register-wrapper">
+        <div class="login-card glass-panel register-card">
+          <div class="card-header">
+            <span class="pill">Create account</span>
+            <h1>Start exploring</h1>
+            <p>Join the City Chatbot community today.</p>
+          </div>
+
+          <form id="registerForm" novalidate>
+            <div class="field-group">
+              <label for="reg-name">Full Name</label>
+              <input id="reg-name" name="name" type="text" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="field-group">
+              <label for="reg-email">Email</label>
+              <input id="reg-email" name="email" type="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="reg-username">Username</label>
+              <input id="reg-username" name="username" type="text" placeholder="Choose a username" required />
+            </div>
+
+            <div class="field-group">
+              <label for="reg-password">Password</label>
+              <div class="password-field">
+                <input id="reg-password" name="password" type="password" placeholder="Create a password" required />
+                <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="reg-confirm-password">Confirm Password</label>
+              <div class="password-field">
+                <input id="reg-confirm-password" name="confirm_password" type="password" placeholder="Confirm your password" required />
+                <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+              </div>
+            </div>
+
+            <button class="primary-btn auth-btn" type="submit">Register</button>
+            <div id="registerError" class="form-message error" role="alert"></div>
+            <div id="registerSuccess" class="form-message success" role="status"></div>
+          </form>
+
+          <div class="auth-footer">
+            <span>Already have an account?</span>
+            <a href="{{ url_for('login_page') }}">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

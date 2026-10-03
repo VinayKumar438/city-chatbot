@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Chatbot | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="dashboard-body home-body">
+    <header class="top-bar dashboard-topbar">
+      <div class="brand-block">
+        <div class="brand-mark">C</div>
+        <div>
+          <span class="brand-label">City Chatbot</span>
+          <small>Smart city guide</small>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <a class="secondary-btn" href="{{ url_for('chatbot_page') }}">Open Chatbot</a>
+        <a class="ghost-btn" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </header>
+
+    <main class="home-shell">
+      <section class="welcome-panel glass-panel">
+        <div>
+          <p class="eyebrow">Hello, {{ user['name'] if user else 'Traveler' }}</p>
+          <h1>Plan your next city adventure.</h1>
+          <p class="lead">
+            Find places to visit, restaurants, hospitals, travel routes, and city events in a single, elegant experience.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="primary-btn" href="{{ url_for('chatbot_page') }}">Launch chatbot</a>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card glass-panel">
+          <span class="icon">📍</span>
+          <h3>City Search</h3>
+          <p>Pick your city and ask natural questions in real time.</p>
+        </article>
+        <article class="stat-card glass-panel">
+          <span class="icon">🍽️</span>
+          <h3>Dining</h3>
+          <p>Discover popular restaurants, cafes, and local favorites.</p>
+        </article>
+        <article class="stat-card glass-panel">
+          <span class="icon">🏥</span>
+          <h3>Health</h3>
+          <p>Quickly find hospitals, clinics, and urgent care options.</p>
+        </article>
+        <article class="stat-card glass-panel">
+          <span class="icon">🚌</span>
+          <h3>Travel</h3>
+          <p>Explore transportation routes and nearby destinations.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

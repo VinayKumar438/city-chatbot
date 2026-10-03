@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="dashboard-body chatbot-body">
+    <header class="top-bar dashboard-topbar">
+      <div class="brand-block">
+        <div class="brand-mark">C</div>
+        <div>
+          <span class="brand-label">City Chatbot</span>
+          <small>{{ user['username'] if user else 'Traveler' }}</small>
+        </div>
+      </div>
+
+      <div class="city-picker-group">
+        <label for="citySelect">City</label>
+        <select id="citySelect">
+          {% for city in cities %}
+            <option value="{{ city.name }}">{{ city.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="topbar-actions">
+        <button id="clearChatBtn" class="secondary-btn" type="button">Clear chat</button>
+        <a class="ghost-btn" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </header>
+
+    <main class="chat-shell">
+      <aside class="city-side glass-panel">
+        <div class="panel-header">
+          <h2>City guide</h2>
+        </div>
+
+        <div class="quick-prompts">
+          <button class="prompt-chip" type="button">Tourist places</button>
+          <button class="prompt-chip" type="button">Restaurants</button>
+          <button class="prompt-chip" type="button">Hospitals</button>
+          <button class="prompt-chip" type="button">Weather</button>
+          <button class="prompt-chip" type="button">Bus stations</button>
+          <button class="prompt-chip" type="button">Shopping</button>
+          <button class="prompt-chip" type="button">Events</button>
+          <button class="prompt-chip" type="button">Travel routes</button>
+        </div>
+
+        <div class="city-summary">
+          <h3>Popular picks</h3>
+          <ul>
+            {% for city in cities[:4] %}
+              <li>{{ city.name }} · {{ city.country }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </aside>
+
+      <section class="chat-panel glass-panel">
+        <div id="chatMessages" class="chat-messages" aria-live="polite">
+          <div class="bot-message message-row">
+            <div class="message-bubble bot-bubble">
+              Hello! Choose your city and ask me about tourist spots, food, hospitals, transport, weather, or local events.
+            </div>
+          </div>
+        </div>
+
+        <div class="typing-indicator hidden" id="typingIndicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" placeholder="Ask about your city..." autocomplete="off" />
+          <button type="submit" class="primary-btn send-btn">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
